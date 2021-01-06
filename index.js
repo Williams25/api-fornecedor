@@ -5,6 +5,10 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const router = require('./src/routes')
 
+require('./src/database/tabelas').then(() => {
+  console.info('table created')
+}).catch(err => console.error(err.message))
+
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

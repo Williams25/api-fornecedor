@@ -1,5 +1,13 @@
-const fornecedor = require('../model/fornecedor')
+const models = [
+  require('../model/fornecedor'),
+  require('../model/produtos')
+]
 
-fornecedor.sync().then(() => {
-  console.log('fornecedor criado')
-}).catch(err => console.log(err))
+async function createTable () {
+  for (let i = 0; i < models.length; i++) {
+    const model = models[i]
+    await model.sync()
+  }
+}
+
+module.exports = createTable()
