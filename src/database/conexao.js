@@ -1,12 +1,13 @@
 const Sequelize = require('sequelize')
+require('dotenv').config()
 
 const sequelize = new Sequelize(
-  "agenda_petshop",
-  "root",
-  "",
+  process.env.BASE,
+  process.env.USER,
+  process.env.PASSWORD,
   {
-    host: "127.0.0.1",
-    dialect: 'mysql'
+    host: process.env.HOST,
+    dialect: process.env.DIALECT
   }
 )
 
