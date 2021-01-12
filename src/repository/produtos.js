@@ -42,6 +42,10 @@ class Produtos {
     return await produtos.update({ titulo, preco, estoque, fornecedor }, { where: { id } })
   }
 
+  async updateEstoque({ id, estoque, fornecedor }) {
+    return await produtos.update({ estoque, fornecedor }, { where: { id } })
+  }
+
   async delete(id) {
     return await produtos.destroy({ where: { id } })
   }
